@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Status de Propuestas</title>
+</head>
+
+<body>
+    <ul>
+        {% for status_propuesta in status_propuesta %}
+        <a href="{% url 'modificar_status_propuesta' status_propuesta.id %}">
+            <li> {{ status_propuesta.STATUS_PROPUESTA }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_status_propuesta' %}">Crear Status de Propuesta</a>
+</body>
+
+</html>

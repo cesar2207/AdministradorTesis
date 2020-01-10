@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Tipo de Persona</title>
+</head>
+
+<body>
+    <ul>
+        {% for tipo_p in tipo_p %}
+        <a href="{% url 'modificar_tipo_persona' tipo_p.id %}">
+            <li>{{ tipo_p.TIPO_PERSONA }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_tipo_persona' %}">Crear/Modificar</a>
+</body>
+
+</html>

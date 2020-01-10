@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Propuestas</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>Titulo</th>
+            <th>Fecha Entrega</th>
+            <th>Term</th>
+            <th>Status</th>
+            <th>Alumno1</th>
+            <th>Alumno2</th>
+            <th>Tutor Academico</th>
+            <th>Tutor Empresarial</th>       
+        </tr>
+        {% for prop in propuesta %}
+        <tr>
+
+            <td><a href="{% url 'modificar_propuesta' prop.CODIGO %}">{{prop.CODIGO}}</a></td>
+            <td>{{prop.TITULO}}</td>
+            <td>{{prop.FECHA_ENTREGA}}</td>
+            <td>{{prop.TERM.TERM}}</td>
+            <td>{{prop.STATUS.STATUS_PROPUESTA}}</td>
+            <td>{{prop.ALUMNO1.CI}}</td>
+            <td>{{prop.ALUMNO2.CI}}</td>
+            <td>{{prop.TUTOR_A.CI}}</td>
+            <td>{{prop.TUTOR_E.CI}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'crear_propuesta' %}">Crear Propuesta</a>
+</body>
+
+</html>

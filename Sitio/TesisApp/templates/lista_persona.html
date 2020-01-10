@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Personas</title>
+</head>
+
+<body>
+    <p>Ordenar por:</p>
+    <a href="{% url 'lista_persona_ci' %}">Cédula</a>
+    <a href="{% url 'lista_persona_nombre' %}">Nombre</a>
+    <a href="{% url 'lista_persona_apellido' %}">Apellido</a>
+    <table>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Cedula</th>
+            <th>Tipo</th>
+            <th>Correo UCAB</th>
+            <th>Correo Personal</th>
+            <th>Telefono 1</th>
+            <th>Telefono 2</th>
+            <th>Observaciones</th>
+        </tr>
+        {% for pers in persona %}
+        <tr>
+
+            <td><a href="{% url 'modificar_persona' pers.id %}">{{pers.NOMBRES}}</a></td>
+            <td>{{pers.APELLIDOS}}</td>
+            <td>{{pers.CI}}</td>
+            <td>{{pers.TIPO_PERSONA.TIPO_PERSONA}}</td>
+            <td>{{pers.CORREO_U}}</td>
+            <td>{{pers.CORREO_P}}</td>
+            <td>{{pers.TELEFONO1}}</td>
+            <td>{{pers.TELEFONO2}}</td>
+            <td>{{pers.OBSERVACIONES}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'crear_persona' %}">Crear Persona</a>
+</body>
+
+</html>

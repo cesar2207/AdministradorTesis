@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Trabajos de Grado</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>Titulo</th>
+            <th>Propuesta</th>
+            <th>Term</th>
+            <th>Status</th>
+            <th>NRC</th>
+            <th>Descripcion</th>
+            <th>Categoria Tematica</th>
+            <th>Fecha Entrega</th>  
+            <th>Nombre de Empresaa</th>       
+        </tr>
+        {% for tg in tg %}
+        <tr>
+
+            <td><a href="{% url 'modificar_tg' tg.CODIGO %}">{{tg.CODIGO}}</a></td>
+            <td>{{tg.TITULO}}</td>
+            <td>{{tg.PROPUESTA.CODIGO}}</td>
+            <td>{{tg.TERM.TERM}}</td>
+            <td>{{tg.STATUS.STATUS_TG}}</td>
+            <td>{{tg.RC}}</td>
+            <td>{{tg.DESCRIPCION}}</td>
+            <td>{{tg.CAT_TEMATICA}}</td>
+            <td>{{tg.FECHA_ENTREGA}}</td>
+            <td>{{tg.NOMBRE_EMPRESA}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'crear_tg' %}">Crear TG</a>
+</body>
+
+</html>

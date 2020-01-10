@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Defensas</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>TG</th>
+            <th>Fecha Defensa</th>
+            <th>Jurado1</th>
+            <th>Jurado2</th>
+            <th>Jurado Suplente</th>
+            <th>Asistencia J1</th>
+            <th>Asistencia J2</th>
+            <th>Asistencia JS</th>  
+            <th>Calificaion</th>    
+            <th>Mencion Publicacion</th>
+            <th>Mencion Honorifica</th>
+            <th>Correcciones</th>  
+            <th>Fecha Correcciones</th>  
+            <th>Nota Cargada</th>
+            <th>Observaciones</th>  
+              
+        </tr>
+        {% for def in defensa %}
+        <tr>
+
+            <td><a href="{% url 'modificar_defensa' def.CODIGO %}">{{def.CODIGO}}</a></td>
+            <td>{{def.TG.CODIGO}}</td>
+            <td>{{def.FECHA_DEFENSA}}</td>
+            <td>{{def.JURADO1.CI}}</td>
+            <td>{{def.JURADO2.CI}}</td>
+            <td>{{def.JURADO_S.CI}}</td>
+            <td>{{def.ASIST_J1}}</td>
+            <td>{{def.ASIST_J2}}</td>
+            <td>{{def.ASIST_JS}}</td>
+            <td>{{def.CALIFICACION}}</td>
+            <td>{{def.M_PUBLIC}}</td>
+            <td>{{def.M_HONOR}}</td>
+            <td>{{def.CORRECCIONES}}</td>
+            <td>{{def.FECHA_CORREC}}</td>
+            <td>{{def.NOTA_CARGADA}}</td>
+            <td>{{def.OBSERVACIONES}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'crear_defensa' %}">Crear defensa</a>
+</body>
+
+</html>
